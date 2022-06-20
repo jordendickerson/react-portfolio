@@ -17,6 +17,13 @@ import NoMatch from "./pages/no-match.js";
 
 
 export default class App extends Component {
+  constructor(){
+    super();
+
+  }
+
+  
+  
   render() {
     return (
       <div className='app'>
