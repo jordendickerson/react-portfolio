@@ -12,6 +12,7 @@ import About from "./pages/about.js";
 import Contact from "./pages/contact.js";
 import Blog from "./pages/blog.js";
 import PortfolioDetail from "./portfolio/portfolio-detail.js";
+import Auth from "./pages/auth.js";
 import NoMatch from "./pages/no-match.js";
 
 
@@ -33,6 +34,7 @@ export default class App extends Component {
 
             <Switch>
               <Route exact path="/" component={Home} />
+              <Route exact path="/auth" component={Auth} />
               <Route path="/about-me" component={About} />
               <Route path="/contact" component={Contact} />
               <Route path="/blog" component={Blog} />
