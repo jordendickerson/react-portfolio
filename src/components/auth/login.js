@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import axios from 'axios';
 
 
 export default class Login extends Component{
@@ -7,7 +8,8 @@ export default class Login extends Component{
 
         this.state = {
             email: "",
-            password: ""
+            password: "",
+            errorText: ""
         }
 
         this.handleChange = this.handleChange.bind(this);
@@ -15,12 +17,36 @@ export default class Login extends Component{
     }
 
     handleSubmit(event) {
-        console.log("Handle submit", event);
+        axios.post("https://api.devcamp.space/sessions",
+        {
+            client: {
+                email: this.state.email,
+                password: this.state.password
+            }
+        },
+        {withCredentials: true}
+        ).then(response => {
+            if (response.data.status === 'created'){
+                this.props.handleSuccessfulAuth();
+            } else{
+                this.setState({
+                    errorText: "Wrong email or password"
+                })
+            }
+        }).catch(error => {
+            this.setState({
+                errorText: "An error occurred"
+            })
+            this.props.handleUnsuccessfulAuth();
+        });
+        
+        event.preventDefault();
     }
 
     handleChange(event) {
         this.setState({
-            [event.target.name] : event.target.value
+            [event.target.name] : event.target.value,
+            errorText: ""
         })
     }
 
@@ -28,6 +54,9 @@ export default class Login extends Component{
         return(
             <div>
                 <h1>LOGIN TO ACCESS YOUR DASHBOARD</h1>
+
+                <div>{this.state.errorText}</div>
+
                 <form onSubmit={this.handleSubmit}>
                     <input 
                         type="email"
@@ -44,11 +73,12 @@ export default class Login extends Component{
                         value={this.state.password}
                         onChange={this.handleChange} 
                         />
+                    <div>
+                        <button type="submit">Login</button>
+                    </div>
                 </form>
 
-                <div>
-                    <button type="submit">Login</button>
-                </div>
+                
             </div>
         );
     }
