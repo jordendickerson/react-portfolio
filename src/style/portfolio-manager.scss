@@ -1,0 +1,12 @@
+.form-sidebar-wrapper{
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+
+    .form-wrapper{
+        background-color: $offwhite;
+    }
+
+    .sidebar-wrapper{
+        background-color: $charcoal;
+    }
+}

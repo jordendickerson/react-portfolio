@@ -4,6 +4,7 @@ import { withRouter } from "react-router";
 import { NavLink } from "react-router-dom";
 
 const NavigationComponent = (props) => {
+  //CREATES A DYNAMIC LINK
   const dynamicLink = (route, linkText) => {
     return (
       <div className="nav-link-wrapper">
@@ -13,7 +14,7 @@ const NavigationComponent = (props) => {
       </div>
     );
   };
-
+  //HANDLE SIGNING OUT
   const handleSignOut = () => {
     axios
       .delete("https://api.devcamp.space/logout", { withCredentials: true })
@@ -51,8 +52,14 @@ const NavigationComponent = (props) => {
             </NavLink>
           </div>
 
+          <div className="nav-link-wrapper">
+            <NavLink exact to="/blog" activeClassName="nav-link-active">
+              Blog
+            </NavLink>
+          </div>
+
           {props.loggedInStatus === "LOGGED_IN"
-            ? dynamicLink("/blog", "Blog")
+            ? dynamicLink("/portfolio-manager", "Portfolio Manager")
             : null}
         </div>
         <div className="right-side">
