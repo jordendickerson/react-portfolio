@@ -3,11 +3,30 @@
     padding: 21px;
 
     .portfolio-thumb-img img {
-        width: 100%;
+      width: 100%;
     }
 
-    .title {
+    .portfolio-item-text {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .delete-icon {
+        cursor: pointer;
+        font-size: 1.5em;
+        color: white;
+        transition: 0.5s;
+
+        &:hover{
+          color: red;
+        }
+      }
+
+      .title {
+        font-size: 2em;
+        font-weight: 500;
         color: $offwhite;
+      }
     }
   }
 }
