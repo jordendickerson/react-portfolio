@@ -12,5 +12,7 @@
         background-color: $offwhite;
         justify-content: center;
         align-items: center;
+        padding: 5px;
     }
+    @include input-element();
 }
