@@ -37,4 +37,13 @@
             border-bottom: 1px solid $dark-teal;
         }
     }
+
+    textarea{
+        font-family: 'Ubuntu', sans-serif;
+    }
+}
+
+@mixin base-grid() {
+    display: grid;
+    grid-gap: 21px;
 }
