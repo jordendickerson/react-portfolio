@@ -11,14 +11,21 @@
       justify-content: space-between;
       align-items: center;
 
-      .delete-icon {
-        cursor: pointer;
-        font-size: 1.5em;
-        color: white;
-        transition: 0.5s;
+      
+      .actions{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 15px;
 
-        &:hover{
-          color: red;
+        .action-icon {
+          cursor: pointer;
+          font-size: 1.5em;
+          color: white;
+          transition: 0.5s;
+
+          &:hover{
+            color: red;
+          }
         }
       }
 

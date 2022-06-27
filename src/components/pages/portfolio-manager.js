@@ -10,12 +10,27 @@ export default class PortfolioManager extends Component {
 
     this.state = {
       data: [],
+      portfolioToEdit: {}
     };
 
-    this.handleSuccessfulFormSubmission =
-      this.handleSuccessfulFormSubmission.bind(this);
+    this.handleNewFormSubmission = this.handleNewFormSubmission.bind(this);
+    this.handleEditFormSubmission = this.handleEditFormSubmission.bind(this);
     this.handleFormSubmissionError = this.handleFormSubmissionError.bind(this);
     this.handleDeleteClick = this.handleDeleteClick.bind(this);
+    this.handleEditClick = this.handleEditClick.bind(this);
+    this.clearPortfolioToEdit = this.clearPortfolioToEdit.bind(this);
+  }
+
+  clearPortfolioToEdit() {
+    this.setState({
+      portfolioToEdit: {}
+    });
+  }
+
+  handleEditClick(portfolioItem) {
+    this.setState({
+      portfolioToEdit: portfolioItem
+    })
   }
 
   handleDeleteClick(portfolioItem) {
@@ -35,7 +50,11 @@ export default class PortfolioManager extends Component {
     })
   }
 
-  handleSuccessfulFormSubmission(portfolioItem) {
+  handleEditFormSubmission(){
+    this.getPortfolioItems();
+  }
+
+  handleNewFormSubmission(portfolioItem) {
     this.setState({
       data: [portfolioItem].concat(this.state.data),
     });
@@ -74,16 +93,22 @@ export default class PortfolioManager extends Component {
         <div className="form-sidebar-wrapper">
           <div className="form-wrapper">
             <PortfolioForm
-              handleSuccessfulFormSubmission={
-                this.handleSuccessfulFormSubmission
+              handleNewFormSubmission={
+                this.handleNewFormSubmission
+              }
+              handleEditFormSubmission={
+                this.handleEditFormSubmission
               }
               handleFormSubmissionError={this.handleFormSubmissionError}
+              clearPortfolioToEdit={this.clearPortfolioToEdit}
+              portfolioToEdit={this.state.portfolioToEdit}
             />
           </div>
           <div className="sidebar-wrapper">
             <PortfolioSidebarList
               handleDeleteClick={this.handleDeleteClick}
               data={this.state.data}
+              handleEditClick = {this.handleEditClick}
             />
           </div>
         </div>
