@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import axios from "axios";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import {faTrash, faSignOutAlt, faEdit, faBan, faSpinner} from "@fortawesome/free-solid-svg-icons"
+import {faTrash, faSignOutAlt, faEdit, faBan, faSpinner, faPlusCircle, faRectangleXmark} from "@fortawesome/free-solid-svg-icons"
 
 //PAGE IMPORTS
 import PortfolioContainer from "./portfolio/portfolio-container.js";
@@ -18,7 +18,7 @@ import PortfolioDetail from "./portfolio/portfolio-detail.js";
 import Auth from "./pages/auth.js";
 import NoMatch from "./pages/no-match.js";
 
-library.add(faTrash, faSignOutAlt, faEdit, faBan, faSpinner);
+library.add(faTrash, faSignOutAlt, faEdit, faBan, faSpinner, faPlusCircle, faRectangleXmark);
 
 export default class App extends Component {
   constructor(props) {
@@ -118,7 +118,10 @@ export default class App extends Component {
 
               <Route path="/about-me" component={About} />
               <Route path="/contact" component={Contact} />
-              <Route path="/blog" component={Blog} />
+              <Route path="/blog" 
+              render={props => (
+                <Blog {...props} loggedInStatus={this.state.loggedInStatus} />
+              )} />
               <Route path="/b/:slug" component={BlogDetail} />
               {this.state.loggedInStatus === "LOGGED_IN"
                 ? this.authorizedPages()

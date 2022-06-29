@@ -3,6 +3,26 @@
     flex-direction: column;
     align-items: center;
     background-color: $offwhite;
+    position: relative;
+
+    .new-blog-link{
+        position: fixed;
+        right: 0;
+        bottom: 0;
+
+        a{
+            font-size: 5em;
+            cursor: pointer;
+            color: $teal;
+            margin-right: 15px;
+            margin-bottom: 15px;
+            transition: 0.3s ease-in-out;
+
+            &:hover{
+                color: $dark-teal;
+            }
+        }
+    }
 
     .content-container{
         display: flex;
@@ -20,7 +40,7 @@
         }
 
         h1{
-            font-size: 2    .5rem;
+            font-size: 2.5rem;
         }
         .featured-image-wrapper{
             img{
@@ -31,8 +51,16 @@
                 object-fit: cover;
             }
         }
-        .content{
-            
-        }
+    }
+}
+
+.blog-modal-exit-icon {
+    font-size: 2em;
+    color: $teal;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+
+    &:hover{
+        color: $dark-teal;
     }
 }

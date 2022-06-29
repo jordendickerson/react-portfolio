@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import ReactModal from "react-modal";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 
 import BlogForm from "../blog/blog-form.js"
 
@@ -39,7 +41,7 @@ export default class BlogModal extends Component {
         }}
         isOpen={this.props.showModal}
       >
-        <a onClick={this.props.handleCloseModal}>X</a>
+        <a onClick={this.props.handleCloseModal} className="blog-modal-exit-icon"><FontAwesomeIcon icon="rectangle-xmark" /></a>
         <BlogForm handleSuccessfulFormSubmission={this.handleSuccessfulFormSubmission} />
       </ReactModal>
     );
