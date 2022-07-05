@@ -1,0 +1,45 @@
+.content-page-wrapper{
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+    height: calc(100vh - 84px);
+
+    .right-side{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 50px;
+    
+        .contact-wrapper{
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-gap: 21px;
+
+            .contact-icon-info-wrapper{
+                display: flex;
+                align-items: center;
+                color: $teal;
+                font-size: 1.3em;
+                font-weight: 500;
+                gap: 10px;
+                
+                .icon{
+                    font-size: 1.25em;
+                }
+
+                .info{
+                    transition: 0.2s ease-in;
+
+                    &:hover{
+                        color: $dark-teal;
+                        text-decoration: underline;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+
+    
+}

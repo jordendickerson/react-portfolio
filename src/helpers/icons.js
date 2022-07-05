@@ -6,6 +6,8 @@ import {
   faSpinner,
   faPlusCircle,
   faRectangleXmark,
+  faEnvelope,
+  faPhone
 } from "@fortawesome/free-solid-svg-icons";
 import { library } from "@fortawesome/fontawesome-svg-core";
 
@@ -18,7 +20,9 @@ const Icons = () => {
     faBan,
     faSpinner,
     faPlusCircle,
-    faRectangleXmark
+    faRectangleXmark,
+    faEnvelope,
+    faPhone
     );
 }
 
