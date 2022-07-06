@@ -58,12 +58,14 @@ export default class PortfolioDetail extends Component {
                     <h2>{name}</h2>
                     <p>{description}</p>
                 </div>
-            <div className="image"><img src={banner_image_url} /></div>
+            <div className="image">
+              <img src={banner_image_url} />
+            </div>
         </div>
 
             <div className="portfolio-description-detail-wrapper">
                 <div className="description">
-                {description}
+                {/* {description} */}
                 </div>
             </div>
             
